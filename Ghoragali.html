@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ghora Gali - Petrified Wedding of the Himalayas</title>
+<style>
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BASE */
+body {
+  font-family: Georgia, serif;
+  background-color: #111;
+  color: #ddd;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+/* NAVIGATION */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #1a1a1a;
+  padding: 15px 0;
+  text-align: center;
+  z-index: 1000;
+  border-bottom: 2px solid #8b6914;
+}
+
+.navbar a {
+  color: #d4a843;
+  text-decoration: none;
+  margin: 0 20px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.navbar a:hover {
+  color: #ffffff;
+}
+
+/* HERO SECTION */
+.hero {
+  height: 100vh;
+  background-color: #000;
+  background-image: linear-gradient(to bottom, #000000, #1a0a00);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.hero h1 {
+  font-size: 56px;
+  color: #f0e6d0;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.hero h1 span {
+  color: #d4a843;
+  font-style: italic;
+}
+
+.hero p {
+  font-size: 18px;
+  color: #aaa;
+  margin-bottom: 10px;
+  font-family: Arial, sans-serif;
+  letter-spacing: 2px;
+}
+
+.hero .author {
+  font-style: italic;
+  color: #d4a843;
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.hero .scroll-down {
+  margin-top: 50px;
+  font-size: 30px;
+  color: #8b6914;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+
+/* SECTIONS */
+.section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 80px 30px;
+  border-bottom: 1px solid #333;
+}
+
+.section-tag {
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #8b6914;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.section h2 {
+  font-size: 32px;
+  color: #d4a843;
+  font-weight: normal;
+  margin-bottom: 25px;
+}
+
+.section p {
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+/* ABSTRACT BOX */
+.abstract {
+  border-left: 4px solid #8b6914;
+  padding-left: 25px;
+  font-style: italic;
+  color: #bbb;
+  margin-bottom: 40px;
+}
+
+/* PULL QUOTE */
+.quote {
+  text-align: center;
+  border-top: 1px solid #444;
+  border-bottom: 1px solid #444;
+  padding: 30px 20px;
+  margin: 40px 0;
+  font-size: 22px;
+  color: #d4a843;
+  font-style: italic;
+}
+
+/* GOALS LIST */
+.goals {
+  list-style: none;
+  margin: 20px 0;
+}
+
+.goals li {
+  padding: 12px 0 12px 30px;
+  border-bottom: 1px solid #333;
+  color: #ccc;
+  position: relative;
+}
+
+.goals li:before {
+  content: "▶";
+  position: absolute;
+  left: 0;
+  color: #8b6914;
+  font-size: 10px;
+  top: 16px;
+}
+
+/* TABS */
+.tabs {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  padding: 10px 20px;
+  background-color: #222;
+  border: 1px solid #444;
+  color: #aaa;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.tab-btn:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+.tab-btn.active {
+  background-color: #8b6914;
+  border-color: #8b6914;
+  color: #fff;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* PHOTO GALLERY */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.gallery-item {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  border: 1px solid #444;
+  cursor: pointer;
+  background-color: #1a1a1a;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.08);
+}
+
+.gallery-item .caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0,0,0,0.75);
+  color: #d4a843;
+  font-size: 12px;
+  font-family: Arial, sans-serif;
+  padding: 8px 10px;
+  transform: translateY(100%);
+  transition: transform 0.3s;
+}
+
+.gallery-item:hover .caption {
+  transform: translateY(0);
+}
+
+.photo-box {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #555;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  text-align: center;
+  padding: 10px;
+  background-color: #1a1a1a;
+}
+
+.photo-box .icon {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+/* LIGHTBOX */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.96);
+  z-index: 9999;
+}
+
+.lightbox.show {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox img {
+  max-width: 85%;
+  max-height: 75vh;
+  border: 1px solid #444;
+}
+
+.lightbox .lb-caption {
+  color: #d4a843;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  margin-top: 15px;
+  letter-spacing: 1px;
+}
+
+.lightbox .lb-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: #aaa;
+  cursor: pointer;
+  background: none;
+  border: none;
+  line-height: 1;
+}
+
+.lightbox .lb-close:hover {
+  color: #fff;
+}
+
+.lightbox .lb-prev,
+.lightbox .lb-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 50px;
+  color: #aaa;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 10px 20px;
+}
+
+.lightbox .lb-prev { left: 10px; }
+.lightbox .lb-next { right: 10px; }
+.lightbox .lb-prev:hover,
+.lightbox .lb-next:hover { color: #fff; }
+
+/* VIDEO SECTION */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.video-card {
+  background-color: #1a1a1a;
+  border: 1px solid #444;
+  overflow: hidden;
+}
+
+.video-card video {
+  width: 100%;
+  display: block;
+}
+
+.video-card .video-box {
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #555;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  text-align: center;
+}
+
+.video-card .video-box .icon {
+  font-size: 36px;
+  margin-bottom: 8px;
+}
+
+.video-card .video-title {
+  padding: 12px 15px;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  color: #aaa;
+  border-top: 1px solid #333;
+}
+
+/* MAP */
+.map-container {
+  margin-top: 30px;
+  border: 1px solid #444;
+  overflow: hidden;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 400px;
+  display: block;
+  border: none;
+}
+
+.map-title {
+  background-color: #1a1a1a;
+  padding: 12px 16px;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  color: #777;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* TIMELINE */
+.timeline {
+  list-style: none;
+  margin-top: 30px;
+  position: relative;
+}
+
+.timeline li {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid #333;
+}
+
+.timeline li:last-child {
+  border-bottom: none;
+}
+
+.tl-date {
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  color: #8b6914;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+  padding-top: 3px;
+}
+
+.tl-desc {
+  color: #ccc;
+}
+
+/* ACCORDION */
+.accordion-item {
+  border: 1px solid #333;
+  margin-bottom: 10px;
+}
+
+.accordion-header {
+  background-color: #1a1a1a;
+  padding: 15px 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #d4a843;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+}
+
+.accordion-header:hover {
+  background-color: #222;
+}
+
+.accordion-header .arrow {
+  font-size: 12px;
+  transition: transform 0.3s;
+}
+
+.accordion-header.open .arrow {
+  transform: rotate(180deg);
+}
+
+.accordion-body {
+  display: none;
+  padding: 20px;
+  color: #ccc;
+  border-top: 1px solid #333;
+  line-height: 1.8;
+}
+
+.accordion-body.open {
+  display: block;
+}
+
+/* SEARCH */
+.search-box {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.search-box input {
+  flex: 1;
+  padding: 12px 16px;
+  background-color: #1a1a1a;
+  border: 1px solid #444;
+  color: #fff;
+  font-size: 15px;
+  font-family: Arial, sans-serif;
+  min-width: 200px;
+}
+
+.search-box input:focus {
+  outline: none;
+  border-color: #8b6914;
+}
+
+.search-box button {
+  padding: 12px 24px;
+  background-color: #8b6914;
+  border: none;
+  color: #fff;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.search-box button:hover {
+  background-color: #d4a843;
+  color: #000;
+}
+
+/* BIBLIOGRAPHY */
+.bib {
+  list-style: none;
+  margin-top: 20px;
+}
+
+.bib li {
+  padding: 12px 0 12px 25px;
+  text-indent: -25px;
+  border-bottom: 1px solid #222;
+  color: #999;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.bib li a {
+  color: #d4a843;
+  text-decoration: none;
+}
+
+.bib li a:hover {
+  text-decoration: underline;
+}
+
+/* BACK TO TOP BUTTON */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #8b6914;
+  color: #fff;
+  border: none;
+  width: 45px;
+  height: 45px;
+  font-size: 20px;
+  cursor: pointer;
+  display: none;
+  z-index: 999;
+}
+
+.back-to-top:hover {
+  background-color: #d4a843;
+  color: #000;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #0a0a0a;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #444;
+  border-top: 1px solid #222;
+}
+
+/* RESPONSIVE */
+@media (max-width: 700px) {
+  .hero h1 { font-size: 36px; }
+  .gallery { grid-template-columns: repeat(2, 1fr); }
+  .video-grid { grid-template-columns: 1fr; }
+  .timeline li { grid-template-columns: 1fr; gap: 5px; }
+  .navbar a { margin: 0 10px; font-size: 11px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- BACK TO TOP -->
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<!-- NAVIGATION -->
+<div class="navbar">
+  <a href="#about">About</a>
+  <a href="#photos">Photos</a>
+  <a href="#videos">Videos</a>
+  <a href="#methodology">Methodology</a>
+  <a href="#location">Location</a>
+  <a href="#timeline">Timeline</a>
+  <a href="#bibliography">Bibliography</a>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <p style="font-family:Arial,sans-serif; font-size:12px; letter-spacing:4px; color:#8b6914; text-transform:uppercase; margin-bottom:25px;">Digital Archaeological Preservation Project</p>
+  <h1>Petrified Wedding<br><span>of the Himalayas</span></h1>
+  <p style="margin-top:20px;">Ghora Gali Gool &nbsp;·&nbsp; Indian Occupied Kashmir</p>
+  <p class="author">Ashfaq Ahmed</p>
+  <div class="scroll-down">↓</div>
+</div>
+
+<!-- ABOUT -->
+<div class="section" id="about">
+  <span class="section-tag">Abstract</span>
+  <div class="abstract">
+    <p>This project digitally documents Ghora Gali, an archaeological site in the
+    Himalayan mountains of Indian Occupied Kashmir featuring around 200 stone
+    sculptures. Despite its historical and cultural significance, Ghora Gali
+    remains largely unrecorded and at risk of erasure. Using photography,
+    videography, GPS geotagging, and 3D modeling, this project creates an online
+    archive preserving Ghora Gali's material history and local folklore.</p>
+  </div>
+
+  <h2 style="margin-top:40px;">Growing up, I was told never to go to Ghora Gali.</h2>
+
+  <p>Ghora Gali — horse alley — Gool in Indian Occupied Kashmir is considered off
+  limits, shrouded in local cautionary tales and folklore. My mother, like many
+  others in my village who could not read or write but carried vast archives in
+  their memories, would lower her voice whenever the name Ghora Gali came up.</p>
+
+  <p>Folklore goes that in the Himalayan forests, long long ago, a wedding
+  procession climbed the mountain pass: men, women and children on horses, drums
+  echoing across the Pir Panjal range. Before they could reach their destination,
+  the <strong style="color:#f0e6d0;">jinns</strong> — demons and spirits —
+  arrived and overpowered the wedding party, turning everyone into stone.
+  The wedding froze in time. The jinn never left.</p>
+
+  <div class="quote">
+    "At Ghora Gali, history did not end. It hardened and waited."
+  </div>
+
+  <p>Only later did I learn that Ghora Gali is one of the most significant
+  archaeological sites in India, with around two hundred unique stone sculptures
+  of mounted horsemen, referred to as the Horsemen of the Pir Panjal,
+  Kashmir's Lost Hun Riders, or simply the Petrified Wedding.</p>
+
+  <p>The goals of this project are:</p>
+  <ul class="goals">
+    <li>To digitally preserve Ghora Gali and the folktales associated with it.</li>
+    <li>To make this archive freely available online for scholars worldwide.</li>
+    <li>To petition the Archaeological Survey of India and UNESCO to declare
+    Ghora Gali a World Heritage Site.</li>
+  </ul>
+</div>
+
+<!-- PHOTOS -->
+<div class="section" id="photos">
+  <span class="section-tag">Photo Archive</span>
+  <h2>Stone Sculptures of the Pir Panjal</h2>
+
+  <p>Click any photo to open the full screen viewer. Use the arrow keys or
+  buttons to move between photos. Press Escape to close.</p>
+
+  <!-- SEARCH BAR -->
+  <div class="search-box">
+    <input type="text" id="search-input" placeholder="Search photos e.g. horseman, warrior, panorama...">
+    <button onclick="searchPhotos()">Search</button>
+    <button onclick="resetSearch()" style="background-color:#333; border:1px solid #555;">Reset</button>
+  </div>
+
+  <!-- GALLERY TABS -->
+  <div class="tabs">
+    <button class="tab-btn active" onclick="filterGallery('all', this)">All Photos</button>
+    <button class="tab-btn" onclick="filterGallery('sculpture', this)">Sculptures</button>
+    <button class="tab-btn" onclick="filterGallery('landscape', this)">Landscape</button>
+    <button class="tab-btn" onclick="filterGallery('detail', this)">Details</button>
+  </div>
+
+  <!-- GALLERY GRID -->
+  <!--
+    HOW TO ADD YOUR PHOTOS:
+    Replace each photo-box div with:
+    <img src="yourphoto.jpg" alt="description">
+    Make sure the photo file is in the same folder as this HTML file.
+    Keep the data-category and data-caption attributes on the gallery-item div.
+  -->
+  <div class="gallery" id="gallery">
+
+    <div class="gallery-item" data-category="sculpture" data-caption="Mounted horseman — Category A — Ghora Gali">
+      <div class="photo-box"><div class="icon">📷</div>Add photo:<br>sculpture1.jpg</div>
+      <div class="caption">Mounted horseman — Category A</div>
+    </div>
+
+    <div class="gallery-item" data-category="sculpture" data-caption="Headless sculpture, weathered — Ghora Gali">
+      <div class="photo-box"><div class="icon">📷</div>Add photo:<br>sculpture2.jpg</div>
+      <div class="caption">Headless sculpture, weathered</div>
+    </div>
+
+    <div class="gallery-item" data-category="sculpture" data-caption="Double-rider sculpture — Ghora Gali">
+      <div class="photo-box"><div class="icon">📷</div>Add photo:<br>sculpture3.jpg</div>
+      <div class="caption">Double-rider sculpture</div>
+    </div>
+
+    <div class="gallery-item" data-category="detail" data-caption="Warrior with weapon — Ghora Gali">
+      <div class="photo-box"><div class="icon">📷</div>Add photo:<br>sculpture4.jpg</div>
+      <div class="caption">Warrior with weapon</div>
+    </div>
+
+    <div class="gallery-item" data-category="detail" data-caption="Close-up of carving detail — Ghora Gali">
+      <div class="photo-box"><div class="icon">📷</div>Add photo:<br>detail1.jpg</div>
+      <div class="caption">Close-up of carving detail</div>
+    </div>
+
+    <div class="gallery-item" data-category="landscape" data-caption="Panoramic view of site — Ghora Gali">
+      <div class="photo-box"><div class="icon">📷</div>Add photo:<br>panorama.jpg</div>
+      <div class="caption">Panoramic view of site</div>
+    </div>
+
+    <div class="gallery-item" data-category="landscape" data-caption="Pir Panjal mountain range — Ghora Gali">
+      <div class="photo-box"><div class="icon">📷</div>Add photo:<br>landscape.jpg</div>
+      <div class="caption">Pir Panjal mountain range</div>
+    </div>
+
+    <div class="gallery-item" data-category="landscape" data-caption="Forest approach to Ghora Gali">
+      <div class="photo-box"><div class="icon">📷</div>Add photo:<br>forest.jpg</div>
+      <div class="caption">Forest approach to site</div>
+    </div>
+
+    <div class="gallery-item" data-category="detail" data-caption="Inscription detail — Ghora Gali">
+      <div class="photo-box"><div class="icon">📷</div>Add photo:<br>detail2.jpg</div>
+      <div class="caption">Inscription detail</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" onclick="closeLightbox()">×</button>
+  <button class="lb-prev" onclick="changePhoto(-1)">‹</button>
+  <button class="lb-next" onclick="changePhoto(1)">›</button>
+  <img id="lb-img" src="" alt="">
+  <p class="lb-caption" id="lb-caption"></p>
+</div>
+
+<!-- VIDEOS -->
+<div class="section" id="videos">
+  <span class="section-tag">Video Documentation</span>
+  <h2>Field Footage from Ghora Gali</h2>
+  <p>Upload your video files to the same folder as this HTML file, then replace
+  the placeholder boxes with real video tags as shown in the comments.</p>
+
+  <!--
+    HOW TO ADD YOUR VIDEOS:
+    Replace the video-box div inside each video-card with:
+    <video controls>
+      <source src="yourvideo.mp4" type="video/mp4">
+    </video>
+    Make sure the .mp4 file is in the same folder as this HTML file.
+  -->
+
+  <div class="video-grid">
+
+    <div class="video-card">
+      <div class="video-box"><div class="icon">🎬</div>Add video:<br>site-overview.mp4</div>
+      <div class="video-title">Site overview — March 2026</div>
+    </div>
+
+    <div class="video-card">
+      <div class="video-box"><div class="icon">🎬</div>Add video:<br>walkthrough.mp4</div>
+      <div class="video-title">Sculpture walkthrough</div>
+    </div>
+
+    <div class="video-card">
+      <div class="video-box"><div class="icon">🎬</div>Add video:<br>oral-history.mp4</div>
+      <div class="video-title">Oral history — local testimony</div>
+    </div>
+
+    <div class="video-card">
+      <div class="video-box"><div class="icon">🎬</div>Add video:<br>landscape.mp4</div>
+      <div class="video-title">Landscape and terrain</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- METHODOLOGY -->
+<div class="section" id="methodology">
+  <span class="section-tag">Methodology</span>
+  <h2>How This Project Works</h2>
+  <p>Click each section below to expand it and read about the methodology.</p>
+
+  <div class="accordion-item">
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+      A. Digital Archaeology and 3D Modeling
+      <span class="arrow">▼</span>
+    </div>
+    <div class="accordion-body">
+      I plan to photograph, videograph, and geotag all 200 stone sculptures at
+      Ghora Gali during a three-week visit in March 2026. My ultimate ambition
+      is to use high-definition 2D photographs to create 3D models of each
+      sculpture type using SAM 3D or Copilot 3D — both free and open tools.
+      These models will be available in open formats enabling reuse across
+      platforms and long-term preservation.
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+      B. Static Digital Publishing
+      <span class="arrow">▼</span>
+    </div>
+    <div class="accordion-body">
+      I will publish the project as a static website built with Jekyll and
+      hosted on GitHub Pages. Static websites are lightweight, stable, and
+      sustainable. The website will have pages divided into sculpture categories,
+      with each page displaying 2D photographs and a 3D model embedded via
+      Google Model Viewer, which supports open access without proprietary lock-in.
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+      C. Structured Metadata and Reusability
+      <span class="arrow">▼</span>
+    </div>
+    <div class="accordion-body">
+      Each documented sculpture will be accompanied by structured metadata
+      including a unique identifier, material and condition notes, iconographic
+      description, stylistic and comparative notes such as Central Asian or
+      Indo-Greek parallels, and sculpture category. This transforms the project
+      from a descriptive website into a reusable scholarly resource.
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+      D. Critical Scholarly Paper
+      <span class="arrow">▼</span>
+    </div>
+    <div class="accordion-body">
+      Alongside technical documentation, the project will lead to a scholarly
+      paper addressing the politics of archaeological neglect in Kashmir,
+      bureaucratic regimes of preservation and abandonment, and digital heritage
+      as counter-infrastructure. Digital preservation becomes an ethical and
+      scholarly intervention, producing counter-infrastructures that resist
+      disappearance by stabilizing endangered material culture in accessible form.
+    </div>
+  </div>
+
+</div>
+
+<!-- LOCATION -->
+<div class="section" id="location">
+  <span class="section-tag">Location</span>
+  <h2>Gool, Ramban District, Jammu and Kashmir</h2>
+  <p>Ghora Gali is situated in the Pir Panjal range, in the Gool area of Ramban
+  district, Indian administered Jammu and Kashmir — one of the most militarized
+  and least accessible zones on earth.</p>
+  <div class="map-container">
+    <iframe
+      src="https://www.openstreetmap.org/export/embed.html?bbox=74.5,33.0,75.5,33.8&amp;layer=mapnik&amp;marker=33.35,75.05"
+      title="Map of Ghora Gali">
+    </iframe>
+    <div class="map-title">Ramban District · Jammu and Kashmir · India</div>
+  </div>
+</div>
+
+<!-- TIMELINE -->
+<div class="section" id="timeline">
+  <span class="section-tag">Project Timeline</span>
+  <h2>Phases of the Work</h2>
+  <ul class="timeline">
+    <li>
+      <span class="tl-date">March 2026</span>
+      <div class="tl-desc">Three-week field visit to Ghora Gali. High-definition
+      photography and videography of all 200 stone sculptures. GPS geotagging
+      and preliminary database creation.</div>
+    </li>
+    <li>
+      <span class="tl-date">June 2026</span>
+      <div class="tl-desc">Tagging, categorization, and metadata creation.
+      Generation of 3D models using SAM 3D, categorized by size, shape, number
+      of figures, weapons, gender, and narrative.</div>
+    </li>
+    <li>
+      <span class="tl-date">July 2026</span>
+      <div class="tl-desc">Building and hosting the full archive website with
+      Jekyll on GitHub Pages. Embedding 3D models using Google Model Viewer.</div>
+    </li>
+    <li>
+      <span class="tl-date">August 2026</span>
+      <div class="tl-desc">Scholarly paper submitted to South Asian and global
+      academic conferences on digital heritage and archaeology.</div>
+    </li>
+    <li>
+      <span class="tl-date">September 2026 and beyond</span>
+      <div class="tl-desc">Formal petition to the Archaeological Survey of India
+      and UNESCO to preserve Ghora Gali and declare it a World Heritage Site.</div>
+    </li>
+  </ul>
+</div>
+
+<!-- BIBLIOGRAPHY -->
+<div class="section" id="bibliography">
+  <span class="section-tag">Bibliography</span>
+  <h2>Sources</h2>
+  <ul class="bib">
+    <li>Ingold, Tim. <em>Being Alive: Essays on Movement, Knowledge and Description.</em> London: Routledge, 2012.</li>
+    <li>Live History India. "Mysterious Horsemen of Jammu and Kashmir." <em>Google Arts and Culture.</em> <a href="https://artsandculture.google.com/story/mysterious-horsemen-of-jammu-kashmir-live-history-india/GwVBxGLFdRSDLg" target="_blank">artsandculture.google.com</a></li>
+    <li>Mathawan, Prashant. "Who Left These Ancient Sculptures of Horsemen around the Pir Panjal Range?" <em>Scroll.in,</em> April 6, 2018. <a href="https://scroll.in/magazine/872541/who-left-these-mysterious-sculptures-of-horsemen-around-the-pir-panjal-range" target="_blank">scroll.in</a></li>
+    <li>Mignolo, Walter D. <em>The Darker Side of Western Modernity.</em> Durham, NC: Duke University Press, 2011.</li>
+    <li>Mignolo, Walter D. <em>Local Histories/Global Designs.</em> Princeton, NJ: Princeton University Press, 2000.</li>
+    <li>Mignolo, Walter D., and Catherine E. Walsh. <em>On Decoloniality.</em> Durham, NC: Duke University Press, 2018.</li>
+    <li>Taylor, Diana. <em>The Archive and the Repertoire.</em> Durham, NC: Duke University Press, 2003.</li>
+    <li>The Statesman. "Ancient Rock-Carved Warriors of Gool Losing Battle Against Time." December 1, 2025. <a href="https://asianews.network/ancient-rock-carved-warriors-of-gool-in-indian-administered-jammu-losing-battle-against-time/" target="_blank">asianews.network</a></li>
+    <li>Trouillot, Michel-Rolph. <em>Silencing the Past.</em> Boston: Beacon Press, 1995.</li>
+    <li>Smith, Laurajane. <em>Uses of Heritage.</em> London: Routledge, 2006.</li>
+    <li>Stoler, Ann Laura. <em>Along the Archival Grain.</em> Princeton, NJ: Princeton University Press, 2008.</li>
+  </ul>
+</div>
+
+<footer>
+  2026 · Ashfaq Ahmed · Ghora Gali Digital Preservation Project
+</footer>
+
+<script>
+
+/* ── BACK TO TOP ── */
+window.onscroll = function() {
+  var btn = document.getElementById('backToTop');
+  if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+    btn.style.display = 'block';
+  } else {
+    btn.style.display = 'none';
+  }
+};
+
+/* ── GALLERY ── */
+var currentPhoto = 0;
+var visibleItems = [];
+
+function buildGallery() {
+  visibleItems = [];
+  var items = document.querySelectorAll('.gallery-item');
+  for (var i = 0; i < items.length; i++) {
+    visibleItems.push(items[i]);
+    items[i].onclick = makeHandler(i);
+  }
+}
+
+function makeHandler(index) {
+  return function() {
+    var item = visibleItems[index];
+    var img = item.querySelector('img');
+    if (!img) return;
+    currentPhoto = index;
+    openLightbox(img.src, item.getAttribute('data-caption'));
+  };
+}
+
+function openLightbox(src, caption) {
+  document.getElementById('lb-img').src = src;
+  document.getElementById('lb-caption').textContent = caption;
+  document.getElementById('lightbox').className = 'lightbox show';
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').className = 'lightbox';
+  document.body.style.overflow = '';
+}
+
+function changePhoto(dir) {
+  var imgItems = [];
+  for (var i = 0; i < visibleItems.length; i++) {
+    if (visibleItems[i].querySelector('img')) {
+      imgItems.push(i);
+    }
+  }
+  if (imgItems.length === 0) return;
+  var pos = imgItems.indexOf(currentPhoto);
+  pos = (pos + dir + imgItems.length) % imgItems.length;
+  currentPhoto = imgItems[pos];
+  var item = visibleItems[currentPhoto];
+  document.getElementById('lb-img').src = item.querySelector('img').src;
+  document.getElementById('lb-caption').textContent = item.getAttribute('data-caption');
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft') changePhoto(-1);
+  if (e.key === 'ArrowRight') changePhoto(1);
+});
+
+/* ── FILTER BY CATEGORY ── */
+function filterGallery(category, btn) {
+  var items = document.querySelectorAll('.gallery-item');
+  for (var i = 0; i < items.length; i++) {
+    if (category === 'all' || items[i].getAttribute('data-category') === category) {
+      items[i].style.display = 'block';
+    } else {
+      items[i].style.display = 'none';
+    }
+  }
+  var btns = document.querySelectorAll('.tab-btn');
+  for (var j = 0; j < btns.length; j++) {
+    btns[j].className = 'tab-btn';
+  }
+  btn.className = 'tab-btn active';
+  buildGallery();
+}
+
+/* ── SEARCH PHOTOS ── */
+function searchPhotos() {
+  var query = document.getElementById('search-input').value.toLowerCase();
+  var items = document.querySelectorAll('.gallery-item');
+  for (var i = 0; i < items.length; i++) {
+    var caption = items[i].getAttribute('data-caption').toLowerCase();
+    var category = items[i].getAttribute('data-category').toLowerCase();
+    if (caption.indexOf(query) !== -1 || category.indexOf(query) !== -1) {
+      items[i].style.display = 'block';
+    } else {
+      items[i].style.display = 'none';
+    }
+  }
+  buildGallery();
+}
+
+function resetSearch() {
+  document.getElementById('search-input').value = '';
+  var items = document.querySelectorAll('.gallery-item');
+  for (var i = 0; i < items.length; i++) {
+    items[i].style.display = 'block';
+  }
+  var btns = document.querySelectorAll('.tab-btn');
+  for (var j = 0; j < btns.length; j++) {
+    btns[j].className = 'tab-btn';
+  }
+  btns[0].className = 'tab-btn active';
+  buildGallery();
+}
+
+/* ── ACCORDION ── */
+function toggleAccordion(header) {
+  var body = header.nextElementSibling;
+  if (body.className === 'accordion-body open') {
+    body.className = 'accordion-body';
+    header.className = 'accordion-header';
+  } else {
+    body.className = 'accordion-body open';
+    header.className = 'accordion-header open';
+  }
+}
+
+/* ── START ── */
+buildGallery();
+
+</script>
+</body>
+</html>
+
