@@ -808,11 +808,9 @@ footer {
       <span class="accordion-arrow">▼</span>
     </div>
     <div class="accordion-body">
-      I photographed, videographed, and geotagged stone sculptures at Ghora
-      Gali during my field visit. My ambition is to use these high-definition
-      2D photographs to create 3D models of each sculpture type using SAM 3D
-      or Copilot 3D. These models will be available in open formats enabling
-      reuse across platforms and long-term preservation.
+      I photographed and videographed stone sculptures at Ghora
+      Gali during my field visit. I used these high-definition
+      2D photographs.
     </div>
   </div>
 
