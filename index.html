@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ghora Gali - Petrified Wedding of the Himalayas</title>
+<meta name="description" content="A digital archaeological preservation project documenting the stone sculptures of Ghora Gali, Gool, in the Pir Panjal range.">
+<style>
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Georgia, serif;
+  background-color: #0e0c0a;
+  color: #d4c9b4;
+  font-size: 17px;
+  line-height: 1.85;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background-color: #1a1208;
+  border-bottom: 1px solid #3a2e1e;
+  text-align: center;
+  padding: 14px 20px;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+nav a {
+  font-family: Courier New, monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #c4b89a;
+  text-decoration: none;
+  margin: 0 16px;
+}
+
+nav a:hover {
+  color: #ffffff;
+}
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 100px 40px 60px 40px;
+  background-color: #000000;
+  border-bottom: 1px solid #3a2e1e;
+  overflow: hidden;
+}
+
+/* faint photo behind the title (uses the first photo of the "Horses" collection) */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 2s ease;
+}
+
+.hero-bg.show {
+  opacity: 0.22;
+}
+
+.hero > *:not(.hero-bg) {
+  position: relative;
+}
+
+.hero-tag {
+  font-family: Courier New, monospace;
+  font-size: 10px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #a8442a;
+  margin-bottom: 30px;
+}
+
+.hero h1 {
+  font-size: 60px;
+  font-weight: normal;
+  color: #e8e0d0;
+  line-height: 1.1;
+  max-width: 820px;
+  margin-bottom: 16px;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: #c4b89a;
+}
+
+.hero-sub {
+  font-family: Courier New, monospace;
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: #8a9ba8;
+  margin-bottom: 40px;
+}
+
+.hero-author {
+  font-style: italic;
+  color: #c4b89a;
+  font-size: 17px;
+}
+
+.hero-count {
+  font-family: Courier New, monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #5c4a32;
+  margin-top: 24px;
+}
+
+.arrow {
+  margin-top: 50px;
+  font-size: 24px;
+  color: #5c4a32;
+  text-decoration: none;
+  animation: bob 2.4s ease-in-out infinite;
+}
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+section {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 80px 30px;
+  border-bottom: 1px solid #2a1e10;
+}
+
+/* the photo archive needs more width than the text sections */
+section.wide {
+  max-width: 1180px;
+}
+
+.label {
+  display: block;
+  font-family: Courier New, monospace;
+  font-size: 10px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #a8442a;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 26px;
+  color: #c4b89a;
+  font-weight: normal;
+  margin-bottom: 24px;
+  line-height: 1.4;
+}
+
+p {
+  margin-bottom: 22px;
+}
+
+strong {
+  color: #e8e0d0;
+}
+
+.abstract-box {
+  border-left: 3px solid #5c4a32;
+  padding-left: 24px;
+  font-style: italic;
+  color: #b8aa90;
+}
+
+.pullquote {
+  text-align: center;
+  border-top: 1px solid #3a2e1e;
+  border-bottom: 1px solid #3a2e1e;
+  padding: 32px 20px;
+  margin: 40px 0;
+  font-size: 20px;
+  color: #c4b89a;
+  font-style: italic;
+}
+
+.goals {
+  list-style: none;
+  margin: 20px 0;
+}
+
+.goals li {
+  padding: 12px 0 12px 24px;
+  border-bottom: 1px solid #2a1e10;
+  color: #d4c9b4;
+  position: relative;
+}
+
+.goals li:before {
+  content: "◆";
+  position: absolute;
+  left: 0;
+  color: #a8442a;
+  font-size: 8px;
+  top: 16px;
+}
+
+/* ---------- Photo archive: collection index ---------- */
+
+.collections {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 14px;
+  margin: 30px 0 50px 0;
+}
+
+.collection-card {
+  position: relative;
+  height: 230px;
+  border: 1px solid #3a2e1e;
+  background-color: #1a1008;
+  overflow: hidden;
+  cursor: pointer;
+  text-align: left;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+}
+
+.collection-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 1s ease, opacity 0.4s;
+  opacity: 0.75;
+}
+
+.collection-card:hover img {
+  transform: scale(1.06);
+  opacity: 0.55;
+}
+
+.collection-card .cc-text {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 50px 16px 14px 16px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.9));
+}
+
+.cc-name {
+  display: block;
+  font-size: 20px;
+  color: #e8e0d0;
+  line-height: 1.25;
+}
+
+.cc-count {
+  display: block;
+  font-family: Courier New, monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #c4b89a;
+  margin-top: 6px;
+}
+
+.collection-card:focus-visible,
+.tab:focus-visible,
+.gallery-item:focus-visible {
+  outline: 2px solid #c4b89a;
+  outline-offset: 2px;
+}
+
+/* ---------- Photo archive: tabs ---------- */
+
+.tabs {
+  position: sticky;
+  top: 49px;
+  z-index: 50;
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 14px 0;
+  background-color: #0e0c0a;
+  border-bottom: 1px solid #2a1e10;
+  scrollbar-width: none;
+}
+
+.tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.tab {
+  flex: none;
+  font-family: Courier New, monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #8a7a62;
+  background: none;
+  border: 1px solid #3a2e1e;
+  padding: 8px 14px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.tab:hover {
+  color: #e8e0d0;
+  border-color: #5c4a32;
+}
+
+.tab.active {
+  color: #0e0c0a;
+  background-color: #c4b89a;
+  border-color: #c4b89a;
+}
+
+.collection-intro {
+  margin: 30px 0 0 0;
+}
+
+.collection-intro h3 {
+  font-size: 30px;
+  font-weight: normal;
+  color: #e8e0d0;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.collection-intro p {
+  color: #8a7a62;
+  font-style: italic;
+  margin-bottom: 0;
+}
+
+.photo-count {
+  font-family: Courier New, monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #5c4a32;
+  margin-top: 10px;
+}
+
+/* ---------- Photo archive: grid ---------- */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.gallery-item {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  border: 1px solid #3a2e1e;
+  background-color: #1a1008;
+  aspect-ratio: 1 / 1;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.gallery-item.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s ease, opacity 0.3s;
+}
+
+.gallery-item:hover img {
+  opacity: 0.8;
+  transform: scale(1.05);
+}
+
+.gallery-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0,0,0,0.7);
+  color: #c4b89a;
+  font-family: Courier New, monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  padding: 6px 10px;
+  text-align: left;
+}
+
+/* shown when a photo file has not been uploaded yet */
+.placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #5c4a32;
+  font-family: Courier New, monospace;
+  font-size: 10px;
+  text-align: center;
+  padding: 16px;
+  line-height: 1.6;
+}
+
+.more-wrap {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.more-btn {
+  font-family: Courier New, monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #c4b89a;
+  background: none;
+  border: 1px solid #5c4a32;
+  padding: 12px 26px;
+  cursor: pointer;
+}
+
+.more-btn:hover {
+  background-color: #1a1208;
+  color: #ffffff;
+}
+
+/* ---------- Lightbox ---------- */
+
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.96);
+  z-index: 9999;
+  text-align: center;
+}
+
+.lightbox.open {
+  display: block;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 78vh;
+  margin-top: 60px;
+  border: 1px solid #3a2e1e;
+  transition: opacity 0.25s;
+}
+
+.lightbox img.fading {
+  opacity: 0;
+}
+
+.lightbox .placeholder {
+  width: min(90%, 700px);
+  height: 60vh;
+  margin: 60px auto 0 auto;
+  border: 1px solid #3a2e1e;
+  font-size: 13px;
+}
+
+.lightbox-caption {
+  color: #c4b89a;
+  font-family: Courier New, monospace;
+  font-size: 12px;
+  letter-spacing: 1px;
+  margin-top: 16px;
+}
+
+.lightbox-counter {
+  position: absolute;
+  top: 28px;
+  left: 30px;
+  color: #5c4a32;
+  font-family: Courier New, monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+.lb-close {
+  position: absolute;
+  top: 14px;
+  right: 30px;
+  font-size: 36px;
+  color: #c4b89a;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-family: Georgia, serif;
+}
+
+.lb-prev,
+.lb-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 44px;
+  color: #c4b89a;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 10px 16px;
+  font-family: Georgia, serif;
+}
+
+.lb-prev { left: 10px; }
+.lb-next { right: 10px; }
+
+.lb-close:hover,
+.lb-prev:hover,
+.lb-next:hover {
+  color: #ffffff;
+}
+
+/* ---------- Videos, map, timeline, bibliography ---------- */
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 30px;
+}
+
+.video-card {
+  border: 1px solid #3a2e1e;
+  background-color: #120f0a;
+  overflow: hidden;
+}
+
+.video-card video {
+  width: 100%;
+  display: block;
+}
+
+.video-label {
+  padding: 10px 14px;
+  font-family: Courier New, monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: #8a9ba8;
+  border-top: 1px solid #2a1e10;
+}
+
+.video-placeholder {
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #5c4a32;
+  font-family: Courier New, monospace;
+  font-size: 10px;
+}
+
+.map-wrap {
+  margin-top: 30px;
+  border: 1px solid #3a2e1e;
+  overflow: hidden;
+}
+
+.map-wrap iframe {
+  width: 100%;
+  height: 350px;
+  display: block;
+  border: none;
+}
+
+.map-label {
+  background-color: #120f0a;
+  padding: 10px 16px;
+  font-family: Courier New, monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #5c4a32;
+  text-transform: uppercase;
+}
+
+.timeline {
+  list-style: none;
+  margin-top: 30px;
+}
+
+.timeline li {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid #2a1e10;
+}
+
+.tl-date {
+  font-family: Courier New, monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: #a8442a;
+  text-transform: uppercase;
+  line-height: 1.6;
+}
+
+.tl-text {
+  color: #d4c9b4;
+}
+
+.bib {
+  list-style: none;
+  margin-top: 20px;
+}
+
+.bib li {
+  font-size: 15px;
+  color: #8a7a62;
+  padding: 10px 0 10px 24px;
+  text-indent: -24px;
+  border-bottom: 1px solid #1e160a;
+  line-height: 1.7;
+}
+
+.bib li a {
+  color: #8a9ba8;
+  text-decoration: none;
+}
+
+.bib li a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  text-align: center;
+  padding: 50px 20px;
+  font-family: Courier New, monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #5c4a32;
+}
+
+/* ---------- Phones and tablets ---------- */
+
+@media (max-width: 900px) {
+  .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  nav { text-align: left; padding: 14px 10px; }
+  nav a { margin: 0 10px; letter-spacing: 2px; }
+  .hero { padding: 100px 20px 60px 20px; }
+  .hero h1 { font-size: 38px; }
+  .hero-sub { font-size: 11px; letter-spacing: 2px; }
+  section { padding: 60px 16px; }
+  .tabs { top: 47px; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 6px; }
+  .video-grid { grid-template-columns: 1fr; }
+  .timeline li { grid-template-columns: 1fr; gap: 6px; }
+  .lb-prev, .lb-next { font-size: 34px; padding: 8px; }
+  .lightbox img { max-width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+  .gallery-item { opacity: 1; transform: none; }
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#photos">Photos</a>
+  <a href="#videos">Videos</a>
+  <a href="#location">Location</a>
+  <a href="#timeline">Timeline</a>
+  <a href="#bibliography">Bibliography</a>
+</nav>
+
+<div class="hero" id="top">
+  <div class="hero-bg" id="heroBg"></div>
+  <p class="hero-tag">Digital Archaeological Preservation Project</p>
+  <h1>Petrified Wedding<br><em>of the Himalayas</em></h1>
+  <p class="hero-sub">Ghora Gali Gool &nbsp; · &nbsp; Indian Occupied Kashmir</p>
+  <p class="hero-author">Ashfaq Ahmed</p>
+  <p class="hero-count" id="heroCount"></p>
+  <a class="arrow" href="#about" aria-label="Scroll down">↓</a>
+</div>
+
+<section id="about">
+  <span class="label">Abstract</span>
+  <div class="abstract-box">
+    <p>This project digitally documents Ghora Gali, an archaeological site in the
+    Himalayan mountains of Indian Occupied Kashmir featuring around 200 stone
+    sculptures. Despite its historical and cultural significance, Ghora Gali
+    remains largely unrecorded and at risk of erasure. Using photography,
+    videography, GPS geotagging, and 3D modeling, I will create an online archive
+    that will preserve Ghora Gali's material history and local folklore, making
+    it accessible to scholars and the public.</p>
+  </div>
+
+  <h2 style="margin-top:50px;">Growing up, I was told never to go to Ghora Gali.</h2>
+
+  <p>Ghora Gali (horse alley) Gool in Indian Occupied Kashmir is considered off
+  limits, shrouded in local cautionary tales and folklore. My mother, like many
+  others in my village who could not read or write but carried vast archives in
+  their memories, would lower her voice whenever the name Ghora Gali came up.</p>
+
+  <p>Folklore goes that in the Himalayan forests, long long ago, a wedding
+  procession climbed the mountain pass: men, women and children on horses, drums
+  echoing across the Pir Panjal range. Before they could reach their destination,
+  the <strong>jinns</strong> (demons and spirits) arrived and overpowered the
+  wedding party, turning everyone into stone. The wedding froze in time. The
+  jinn never left.</p>
+
+  <div class="pullquote">
+    "At Ghora Gali, history did not end. It hardened and waited."
+  </div>
+
+  <p>Only later did I learn that Ghora Gali is one of the most significant
+  archaeological sites in India, with around two hundred unique stone sculptures
+  of mounted horsemen, referred to as the Horsemen of the Pir Panjal,
+  Kashmir's Lost Hun Riders, or simply the Petrified Wedding.</p>
+
+  <p>The goals of this project are:</p>
+  <ul class="goals">
+    <li>To digitally preserve Ghora Gali and the folktales associated with it.</li>
+    <li>To make this archive freely available online for scholars worldwide.</li>
+    <li>To petition the Archaeological Survey of India and UNESCO to declare
+    Ghora Gali a World Heritage Site.</li>
+  </ul>
+</section>
+
+<section id="photos" class="wide">
+  <span class="label">Photo Archive</span>
+  <h2>Stone Sculptures of the Pir Panjal</h2>
+  <p>The archive is arranged in collections. Choose one below, then click any
+  photograph to open it full screen. Use the arrow keys or swipe to move through
+  the images.</p>
+
+  <!-- Collection cards and tabs are created automatically from the PHOTO LIST
+       in the script at the bottom of this file. -->
+  <div class="collections" id="collections"></div>
+
+  <div class="tabs" id="tabs" role="tablist" aria-label="Photo collections"></div>
+
+  <div class="collection-intro">
+    <h3 id="colTitle"></h3>
+    <p id="colDesc"></p>
+    <p class="photo-count" id="colCount"></p>
+  </div>
+
+  <div class="gallery-grid" id="gallery"></div>
+
+  <div class="more-wrap" id="moreWrap">
+    <button class="more-btn" id="moreBtn" onclick="showMore()">Show more photographs</button>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <span class="lightbox-counter" id="lb-counter"></span>
+  <button class="lb-close" onclick="closeLightbox()" aria-label="Close">×</button>
+  <button class="lb-prev" onclick="changeImage(-1)" aria-label="Previous photo">‹</button>
+  <button class="lb-next" onclick="changeImage(1)" aria-label="Next photo">›</button>
+  <div id="lb-holder"><img id="lb-img" src="" alt=""></div>
+  <p class="lightbox-caption" id="lb-caption"></p>
+</div>
+
+<section id="videos">
+  <span class="label">Video Documentation</span>
+  <h2>Field Footage from Ghora Gali</h2>
+  <p>To add your videos, replace the placeholder box with a video tag as shown
+  in the comments below.</p>
+
+  <div class="video-grid">
+
+    <!-- TO ADD A VIDEO: replace the div.video-placeholder with:
+         <video controls preload="metadata">
+           <source src="videos/yourvideo.mp4" type="video/mp4">
+         </video>
+         and upload yourvideo.mp4 into a folder called "videos".
+         GitHub only accepts files under 100 MB, so long videos are
+         better uploaded to YouTube and embedded instead. -->
+
+    <div class="video-card">
+      <div class="video-placeholder">🎬<br>Add video:<br>site-overview.mp4</div>
+      <div class="video-label">Site overview — March 2026</div>
+    </div>
+
+    <div class="video-card">
+      <div class="video-placeholder">🎬<br>Add video:<br>walkthrough.mp4</div>
+      <div class="video-label">Sculpture walkthrough</div>
+    </div>
+
+    <div class="video-card">
+      <div class="video-placeholder">🎬<br>Add video:<br>oral-history.mp4</div>
+      <div class="video-label">Oral history — local testimony</div>
+    </div>
+
+    <div class="video-card">
+      <div class="video-placeholder">🎬<br>Add video:<br>landscape.mp4</div>
+      <div class="video-label">Landscape and terrain</div>
+    </div>
+
+  </div>
+</section>
+
+<section id="location">
+  <span class="label">Location</span>
+  <h2>Gool, Ramban District, Jammu and Kashmir</h2>
+  <p>Ghora Gali is situated in the Pir Panjal range, in the Gool area of Ramban
+  district, Indian administered Jammu and Kashmir — one of the most militarized
+  and least accessible zones on earth.</p>
+  <div class="map-wrap">
+    <iframe
+      src="https://www.openstreetmap.org/export/embed.html?bbox=74.5,33.0,75.5,33.8&amp;layer=mapnik&amp;marker=33.35,75.05"
+      title="Map of Ghora Gali location" loading="lazy">
+    </iframe>
+    <div class="map-label">Ramban District · Jammu and Kashmir · India</div>
+  </div>
+</section>
+
+<section id="timeline">
+  <span class="label">Project Timeline</span>
+  <h2>Phases of the Work</h2>
+  <ul class="timeline">
+    <li>
+      <span class="tl-date">March 2026</span>
+      <div class="tl-text">Three-week field visit to Ghora Gali. High-definition
+      photography and videography of all 200 stone sculptures. GPS geotagging
+      and preliminary database creation.</div>
+    </li>
+    <li>
+      <span class="tl-date">June 2026</span>
+      <div class="tl-text">Tagging, categorization, and metadata creation.
+      Generation of 3D models using SAM 3D, categorized by size, shape, number
+      of figures, weapons, gender, and narrative.</div>
+    </li>
+    <li>
+      <span class="tl-date">July 2026</span>
+      <div class="tl-text">Building and hosting the full archive website with
+      Jekyll on GitHub Pages. Embedding 3D models using Google Model Viewer.</div>
+    </li>
+    <li>
+      <span class="tl-date">August 2026</span>
+      <div class="tl-text">Scholarly paper submitted to South Asian and global
+      academic conferences on digital heritage and archaeology.</div>
+    </li>
+    <li>
+      <span class="tl-date">September 2026 and beyond</span>
+      <div class="tl-text">Formal petition to the Archaeological Survey of India
+      and UNESCO to preserve Ghora Gali and declare it a World Heritage Site.</div>
+    </li>
+  </ul>
+</section>
+
+<section id="bibliography">
+  <span class="label">Bibliography</span>
+  <h2>Sources</h2>
+  <ul class="bib">
+    <li>Ingold, Tim. <em>Being Alive: Essays on Movement, Knowledge and
+    Description.</em> London: Routledge, 2012.</li>
+    <li>Live History India. "Mysterious Horsemen of Jammu and Kashmir."
+    <em>Google Arts and Culture.</em>
+    <a href="https://artsandculture.google.com/story/mysterious-horsemen-of-jammu-kashmir-live-history-india/GwVBxGLFdRSDLg" target="_blank" rel="noopener">artsandculture.google.com</a></li>
+    <li>Mathawan, Prashant. "Who Left These Ancient Sculptures of Horsemen
+    around the Pir Panjal Range?" <em>Scroll.in,</em> April 6, 2018.
+    <a href="https://scroll.in/magazine/872541/who-left-these-mysterious-sculptures-of-horsemen-around-the-pir-panjal-range" target="_blank" rel="noopener">scroll.in</a></li>
+    <li>Mignolo, Walter D. <em>The Darker Side of Western Modernity.</em>
+    Durham, NC: Duke University Press, 2011.</li>
+    <li>Mignolo, Walter D. <em>Local Histories/Global Designs.</em>
+    Princeton, NJ: Princeton University Press, 2000.</li>
+    <li>Mignolo, Walter D., and Catherine E. Walsh. <em>On Decoloniality.</em>
+    Durham, NC: Duke University Press, 2018.</li>
+    <li>Taylor, Diana. <em>The Archive and the Repertoire.</em>
+    Durham, NC: Duke University Press, 2003.</li>
+    <li>The Statesman. "Ancient Rock-Carved Warriors of Gool Losing Battle
+    Against Time." December 1, 2025.
+    <a href="https://asianews.network/ancient-rock-carved-warriors-of-gool-in-indian-administered-jammu-losing-battle-against-time/" target="_blank" rel="noopener">asianews.network</a></li>
+    <li>Trouillot, Michel-Rolph. <em>Silencing the Past.</em>
+    Boston: Beacon Press, 1995.</li>
+    <li>Smith, Laurajane. <em>Uses of Heritage.</em>
+    London: Routledge, 2006.</li>
+    <li>Stoler, Ann Laura. <em>Along the Archival Grain.</em>
+    Princeton, NJ: Princeton University Press, 2008.</li>
+  </ul>
+</section>
+
+<footer>
+  2026 · Ashfaq Ahmed · Ghora Gali Digital Preservation Project
+</footer>
+
+<script>
+
+/* =====================================================================
+   PHOTO LIST  —  this is the only part you need to edit.
+   ---------------------------------------------------------------------
+   • Upload your photos into a folder called  images  in your GitHub
+     repository (or next to this file — both work).
+   • Each collection lists photo NUMBERS. The number 5991 means the
+     file IMG_5991.jpeg. The site also finds .jpg, .JPG and .JPEG.
+   • To move a photo, cut its number from one list and paste it in another.
+   • "cover" is the number of the photo shown on the collection card.
+   ===================================================================== */
+
+var PHOTO_FOLDER = "images/";
+var PHOTO_PREFIX = "IMG_";
+
+var COLLECTIONS = [
+  {
+    name: "Baoli — Water System",
+    description: "The stepwell and its water system, recorded as a separate project.",
+    cover: 5991,
+    photos: [5991, 5986, 5985, 5978, 5977, 5976, 5975, 5974, 5973, 5972, 5971, 5970,
+             5969, 5968, 5967, 5966, 5965, 5964, 5963, 5920, 5919, 5915, 5911, 5910,
+             5875, 5872, 5840, 5839, 5838, 5836, 5835, 5834, 5833, 5830, 5829, 5828,
+             5825, 5824, 5823, 5822, 5771, 5770, 5769, 5766, 5756, 5755, 5754, 5753,
+             5752, 5751, 5750, 5749, 5748, 5747, 5746, 5745, 5744, 5741, 5734, 5732,
+             5728]
+  },
+  {
+    name: "Gods",
+    description: "Carved deities and devotional figures.",
+    cover: 6067,
+    photos: [6067, 5902, 5901, 5798, 5797, 5796]
+  },
+  {
+    name: "Horses: Unique",
+    description: "Two horse sculptures unlike any others at the site.",
+    cover: 5990,
+    photos: [5990, 5989]
+  },
+  {
+    name: "Stone Totem Poles",
+    description: "Upright carved stones, worked in panels from top to bottom.",
+    cover: 5916,
+    photos: [5916, 5899, 5884, 5883, 5880, 5878, 5877, 5853, 5852, 5760, 5759]
+  },
+  {
+    name: "Woman with Kangari at Kootas",
+    description: "A female figure carrying a kangri (fire pot), photographed at Kootas.",
+    cover: 6090,
+    photos: [6090, 6086, 6083]
+  },
+  {
+    name: "Kings and Horsemen",
+    description: "Mounted riders, warriors and royal figures — the heart of the petrified wedding.",
+    cover: 5958,
+    photos: [5958, 5957, 5956, 5955, 5954, 5953, 5952, 5950, 5949, 5945, 5944, 5943,
+             5941, 5940, 5936, 5935, 5933, 5923, 5880, 5879, 5868, 5867, 5866, 5865,
+             5863, 5862, 5861, 5860, 5859, 5858, 5857, 5856, 5855, 5848, 5847, 5846,
+             5845, 5844, 5843, 5820, 5819, 5818, 5817, 5816, 5815, 5814, 5813, 5812,
+             5811, 5810, 5809, 5808, 5807, 5806, 5805, 5804, 5803, 5802, 5801, 5800,
+             5799, 5795, 5794, 5791, 5784, 5783, 5782, 5781]
+  },
+  {
+    name: "Field Record",
+    description: "Photographs from the first days of fieldwork.",
+    cover: 5720,
+    photos: [5720, 5718, 5716, 5715, 5713, 5712, 5710, 5709, 5706, 5705, 5704, 5703,
+             5701, 5700, 5699, 5698, 5696, 5695, 5693, 5691, 5690, 5689, 5688, 5687,
+             5685, 5684, 5683, 5682, 5681, 5680, 5677, 5676, 5675, 5674, 5673, 5671,
+             5670, 5668, 5667, 5666, 5665, 5664, 5663, 5662, 5661, 5660, 5659, 5657,
+             5656, 5655, 5650, 5649, 5648, 5642, 5640, 5629, 5626, 5623, 5621, 5620,
+             5619, 5618, 5617, 5613, 5612, 5611]
+  }
+];
+
+/* Photo used faintly behind the title at the top of the page */
+var HERO_PHOTO = 5990;
+
+/* =====================================================================
+   You do not need to edit anything below this line.
+   ===================================================================== */
+
+var PAGE_SIZE = 40;      // photos shown before "Show more"
+var activeCollection = 0;
+var shownCount = PAGE_SIZE;
+var currentIndex = 0;
+
+// The site tries these file names in order, so it works whether photos
+// are in the images folder or next to index.html, and with any ending.
+function candidates(num) {
+  var base = PHOTO_PREFIX + num;
+  var endings = [".jpeg", ".jpg", ".JPG", ".JPEG"];
+  var folders = PHOTO_FOLDER ? [PHOTO_FOLDER, ""] : [""];
+  var list = [];
+  for (var e = 0; e < endings.length; e++) {
+    for (var f = 0; f < folders.length; f++) {
+      list.push(folders[f] + base + endings[e]);
+    }
+  }
+  return list;
+}
+
+// Remember which file name worked for each photo, so it is found instantly next time
+var foundPath = {};
+
+function loadPhoto(img, num, onMissing) {
+  if (foundPath[num]) { img.src = foundPath[num]; return; }
+  var list = candidates(num);
+  var i = 0;
+  img.onload = function () { foundPath[num] = list[i]; img.onload = null; };
+  img.onerror = function () {
+    i++;
+    if (i < list.length) { img.src = list[i]; }
+    else { img.onerror = null; if (onMissing) onMissing(); }
+  };
+  img.src = list[0];
+}
+
+function makePlaceholder(num) {
+  var d = document.createElement("div");
+  d.className = "placeholder";
+  d.innerHTML = "📷<br>Add photo:<br>" + PHOTO_PREFIX + num + ".jpeg";
+  return d;
+}
+
+function photoImage(num, alt) {
+  var img = document.createElement("img");
+  img.loading = "lazy";
+  img.alt = alt;
+  loadPhoto(img, num, function () {
+    if (img.parentNode) img.parentNode.replaceChild(makePlaceholder(num), img);
+  });
+  return img;
+}
+
+// Fade photos in as they scroll into view
+var revealer = ("IntersectionObserver" in window) ? new IntersectionObserver(function (entries) {
+  entries.forEach(function (en) {
+    if (en.isIntersecting) { en.target.classList.add("visible"); revealer.unobserve(en.target); }
+  });
+}, { rootMargin: "0px 0px -5% 0px" }) : null;
+
+function buildCollections() {
+  var holder = document.getElementById("collections");
+  var tabs = document.getElementById("tabs");
+  var total = 0;
+
+  COLLECTIONS.forEach(function (col, i) {
+    total += col.photos.length;
+
+    var card = document.createElement("button");
+    card.className = "collection-card";
+    card.setAttribute("aria-label", "Open " + col.name);
+    card.appendChild(photoImage(col.cover, col.name));
+    var t = document.createElement("div");
+    t.className = "cc-text";
+    t.innerHTML = '<span class="cc-name"></span><span class="cc-count">' +
+                  col.photos.length + " photographs</span>";
+    t.querySelector(".cc-name").textContent = col.name;
+    card.appendChild(t);
+    card.onclick = function () {
+      selectCollection(i);
+      document.getElementById("tabs").scrollIntoView({ behavior: "smooth" });
+    };
+    holder.appendChild(card);
+
+    var tab = document.createElement("button");
+    tab.className = "tab";
+    tab.setAttribute("role", "tab");
+    tab.textContent = col.name + " (" + col.photos.length + ")";
+    tab.onclick = function () { selectCollection(i); };
+    tabs.appendChild(tab);
+  });
+
+  document.getElementById("heroCount").textContent =
+    total + " photographs · " + COLLECTIONS.length + " collections";
+}
+
+function selectCollection(i) {
+  activeCollection = i;
+  shownCount = PAGE_SIZE;
+  var tabs = document.querySelectorAll(".tab");
+  for (var k = 0; k < tabs.length; k++) {
+    tabs[k].className = (k === i) ? "tab active" : "tab";
+    tabs[k].setAttribute("aria-selected", k === i);
+  }
+  if (tabs[i] && tabs[i].scrollIntoView) tabs[i].scrollIntoView({ block: "nearest", inline: "center" });
+  var col = COLLECTIONS[i];
+  document.getElementById("colTitle").textContent = col.name;
+  document.getElementById("colDesc").textContent = col.description;
+  history.replaceState(null, "", "#photos-" + (i + 1));
+  renderGallery();
+}
+
+function renderGallery(append) {
+  var grid = document.getElementById("gallery");
+  var col = COLLECTIONS[activeCollection];
+  var start = append ? grid.children.length : 0;
+  if (!append) grid.innerHTML = "";
+
+  for (var i = start; i < Math.min(shownCount, col.photos.length); i++) {
+    var num = col.photos[i];
+    var item = document.createElement("button");
+    item.className = "gallery-item";
+    item.style.transitionDelay = ((i - start) % 12) * 30 + "ms";
+    item.setAttribute("aria-label", "View photo " + num);
+    item.appendChild(photoImage(num, col.name + " — " + PHOTO_PREFIX + num));
+    var cap = document.createElement("div");
+    cap.className = "gallery-caption";
+    cap.textContent = PHOTO_PREFIX + num;
+    item.appendChild(cap);
+    item.onclick = makeClickHandler(i);
+    grid.appendChild(item);
+    if (revealer) revealer.observe(item); else item.classList.add("visible");
+  }
+
+  var shown = Math.min(shownCount, col.photos.length);
+  document.getElementById("colCount").textContent =
+    "Showing " + shown + " of " + col.photos.length + " photographs";
+  document.getElementById("moreWrap").style.display =
+    shown < col.photos.length ? "block" : "none";
+}
+
+function showMore() {
+  shownCount += PAGE_SIZE;
+  renderGallery(true);
+}
+
+/* ---------- Lightbox ---------- */
+
+function makeClickHandler(index) {
+  return function () { openLightbox(index); };
+}
+
+function openLightbox(index) {
+  document.getElementById("lightbox").className = "lightbox open";
+  document.body.style.overflow = "hidden";
+  showImage(index);
+}
+
+function showImage(index) {
+  var col = COLLECTIONS[activeCollection];
+  var n = col.photos.length;
+  currentIndex = (index + n) % n;
+  var num = col.photos[currentIndex];
+
+  var holder = document.getElementById("lb-holder");
+  holder.innerHTML = "";
+  var img = document.createElement("img");
+  img.id = "lb-img";
+  img.alt = col.name + " — " + PHOTO_PREFIX + num;
+  img.className = "fading";
+  img.addEventListener("load", function () { img.className = ""; });
+  loadPhoto(img, num, function () {
+    holder.innerHTML = "";
+    holder.appendChild(makePlaceholder(num));
+  });
+  holder.appendChild(img);
+
+  document.getElementById("lb-caption").textContent = PHOTO_PREFIX + num + "  ·  " + col.name;
+  document.getElementById("lb-counter").textContent = (currentIndex + 1) + " / " + n;
+
+  // load the next photo early so it appears instantly
+  var nextNum = col.photos[(currentIndex + 1) % n];
+  if (!foundPath[nextNum]) loadPhoto(new Image(), nextNum);
+}
+
+function closeLightbox() {
+  document.getElementById("lightbox").className = "lightbox";
+  document.body.style.overflow = "";
+}
+
+function changeImage(dir) {
+  showImage(currentIndex + dir);
+}
+
+document.addEventListener("keydown", function (e) {
+  if (document.getElementById("lightbox").className.indexOf("open") === -1) return;
+  if (e.key === "Escape") closeLightbox();
+  if (e.key === "ArrowLeft") changeImage(-1);
+  if (e.key === "ArrowRight") changeImage(1);
+});
+
+// click on the dark background closes the viewer
+document.getElementById("lightbox").addEventListener("click", function (e) {
+  if (e.target.id === "lightbox" || e.target.id === "lb-holder") closeLightbox();
+});
+
+// swipe left / right on phones
+var touchX = 0;
+document.getElementById("lightbox").addEventListener("touchstart", function (e) {
+  touchX = e.touches[0].clientX;
+}, { passive: true });
+document.getElementById("lightbox").addEventListener("touchend", function (e) {
+  var dx = e.changedTouches[0].clientX - touchX;
+  if (Math.abs(dx) > 50) changeImage(dx < 0 ? 1 : -1);
+});
+
+/* ---------- Start ---------- */
+
+window.onload = function () {
+  // keep the collection tabs just under the top menu
+  var navH = document.querySelector("nav").offsetHeight;
+  var tabsEl = document.getElementById("tabs");
+  tabsEl.style.top = (navH - 1) + "px";
+  tabsEl.style.scrollMarginTop = navH + "px";
+
+  buildCollections();
+
+  // open a collection straight from a link such as  .../#photos-6
+  var m = location.hash.match(/^#photos-(\d+)$/);
+  var start = m ? Math.min(parseInt(m[1], 10) - 1, COLLECTIONS.length - 1) : 0;
+  selectCollection(start);
+  if (m) document.getElementById("tabs").scrollIntoView();
+  else history.replaceState(null, "", location.pathname);
+
+  // faint photo behind the title
+  var bg = new Image();
+  loadPhoto(bg, HERO_PHOTO);
+  bg.addEventListener("load", function () {
+    var el = document.getElementById("heroBg");
+    el.style.backgroundImage = "url('" + bg.src + "')";
+    el.className = "hero-bg show";
+  });
+};
+
+</script>
+
+</body>
+</html>
