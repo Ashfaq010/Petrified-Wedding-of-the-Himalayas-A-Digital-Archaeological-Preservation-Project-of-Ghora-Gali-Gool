@@ -546,8 +546,8 @@ footer {
     Himalayan mountains of Indian Occupied Kashmir featuring around 200 stone
     sculptures. Despite its historical and cultural significance, Ghora Gali
     remains largely unrecorded and at risk of erasure. Using photography,
-    videography, GPS geotagging, and 3D modeling, this project creates an online
-    archive preserving Ghora Gali's material history and local folklore.</p>
+    videography, this project attempts to creates an online
+    archive aims to preserve Ghora Gali's material history and local folklore.</p>
   </div>
 
   <h2 style="margin-top:40px;">Growing up, I was told never to go to Ghora Gali.</h2>
